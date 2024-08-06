@@ -1,8 +1,20 @@
 % Load image
-imgUTS = imread("datasets/image1.png");
-imgFruit = imread("datasets/image2.png");
+imgFruit = imread("datasets/image2.png"); % Returns array format of image
 
-imshowpair(imgUTS, imgFruit);               % See images
+disp("Size of image:")
+disp(size(imgFruit));                     % Size of image array
 
-disp(size(imgUTS))                          % Image matrix
+disp("Dimensions of image array: ")
+disp(ndims(imgFruit))
 
+%imshow(imgFruit(:,:))
+
+%imshow(rgb2gray(imgFruit))
+
+imgFruitGray = rgb2gray(imgFruit);
+
+imgFruitGray = im2uint8(imgFruitGray);
+
+imgFruitBinary = imbinarize(imgFruitGray);
+
+imshowpair(imgFruitGray, imgFruitBinary, "montage")
